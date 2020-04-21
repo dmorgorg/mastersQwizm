@@ -1,0 +1,25 @@
+{
+  "name": "noo-qwizm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel QWIZM/src -d QWIZM && babel statics/quizzes/quiz00MR01/src -d statics/quizzes/quiz00MR01 && babel statics/questions/_00MR/src -d statics/questions/_00MR"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmorgorg/nooQwizm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmorgorg/nooQwizm/issues"
+  },
+  "homepage": "https://github.com/dmorgorg/nooQwizm#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5"
+  }
+}

@@ -1,0 +1,747 @@
+/* tillana-600 - latin */
+@font-face {
+  font-family: "Tillana";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Tillana SemiBold"), local("Tillana-SemiBold"), url("../../../QWIZM/fonts/tillana-v5-latin-600.woff2") format("woff2"), url("../../../QWIZM/fonts/tillana-v5-latin-600.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* quicksand-600 - latin */
+@font-face {
+  font-family: "Quicksand";
+  font-style: normal;
+  font-weight: 600;
+  src: local(""), url("../../../QWIZM/fonts/quicksand-v20-latin-600.woff2") format("woff2"), url("../../../QWIZM/fonts/quicksand-v20-latin-600.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* architects-daughter-regular - latin */
+@font-face {
+  font-family: "Architects Daughter";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Architects Daughter Regular"), local("ArchitectsDaughter-Regular"), url("../../../QWIZM/fonts/architects-daughter-v10-latin-regular.woff2") format("woff2"), url("../../../QWIZM/fonts/architects-daughter-v10-latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+html {
+  height: 100%;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+body {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-y: hidden;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  background-color: maroon;
+  padding: 0;
+  margin-bottom: 1em;
+  /* For mobile, full width - without which 'text-align: center;' doesn't do anything */
+}
+
+header > * {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 100%;
+          flex: 1 100%;
+}
+
+header > h1 {
+  margin: 0;
+  padding: 0.125em 0;
+  color: white;
+  font-family: "Tillana", cursive;
+  letter-spacing: 0.075em;
+  line-height: 1.125em;
+  text-shadow: 0.2vw 0.2vw 0.375vw black;
+  text-align: center;
+}
+
+header > .rightblock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  margin: 0;
+  padding: 0;
+}
+
+header > .rightblock > h3 {
+  margin: 0;
+  margin-bottom: 0.125em;
+  padding: 0.0625em 0.5em 0.25em 0.5em;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 auto;
+          flex: 1 auto;
+  font-family: "Quicksand";
+  color: white;
+  text-shadow: 0.1vw 0.1vw 0.15vw black;
+  line-height: 1em;
+  letter-spacing: 0.075em;
+}
+
+header > .rightblock > h3 + h3 {
+  text-align: right;
+}
+
+footer {
+  background-color: maroon;
+  margin-top: 1em;
+  padding: 0.05em 1em;
+}
+
+.navbar {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+}
+
+.navbar > * {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 auto;
+          flex: 1 auto;
+}
+
+.navbar > ul {
+  display: inline;
+  text-align: center;
+  padding: 0;
+  margin: 0.5em 0;
+  margin-right: 1em;
+  list-style: none;
+  color: whitesmoke;
+}
+
+.navbar > ul > li {
+  padding: 0 0.5vw;
+  display: inline-block;
+  margin: 0.25em 0.375em;
+  -webkit-box-shadow: 0 0 0.2em 0 black;
+          box-shadow: 0 0 0.2em 0 black;
+  background: #670000;
+  background: -webkit-gradient(linear, left top, left bottom, from(maroon), color-stop(35%, maroon), color-stop(65%, #670000), to(#670000));
+  background: linear-gradient(to bottom, maroon, maroon 35%, #670000 65%, #670000);
+}
+
+.navbar > ul > li:hover {
+  cursor: pointer;
+}
+
+.navbar > ul > li.active, .navbar > ul > li:hover {
+  color: black;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), color-stop(35%, white), color-stop(65%, #d9d9d9), to(#d9d9d9));
+  background: linear-gradient(to bottom, white, white 35%, #d9d9d9 65%, #d9d9d9);
+}
+
+.navbar .uname {
+  color: white;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-family: "Architects Daughter";
+  font-size: 115%;
+  text-align: right;
+  padding: 0;
+  margin: 0;
+  text-shadow: 0.12vw 0.12vw 0.25vw black;
+}
+
+#summary summary.statement {
+  margin: 0 auto;
+}
+
+#summary summary.statement h3 {
+  display: block;
+  background-color: maroon;
+  color: white;
+  padding: 1vw 2vw;
+}
+
+#summary summary.statement .uname {
+  color: white;
+  font-family: "Architects Daughter";
+  text-align: right;
+  text-shadow: 0.12vw 0.12vw 0.25vw black;
+  letter-spacing: 0.1vw;
+}
+
+#summary .table {
+  width: 100%;
+  border: 1px solid #888;
+  border-top: none;
+}
+
+#summary .table .row {
+  padding: 0.5vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#summary .table .row .qNumber {
+  display: inline-block;
+  font-size: 115%;
+  width: 20%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+#summary .table .row .items {
+  padding: 0;
+  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border: 1px solid black;
+  width: 80%;
+  text-align: top;
+}
+
+#summary .table .row .items .item {
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  border: 1px solid green;
+}
+
+#summary .table .row:nth-child(2n + 1) {
+  background-color: #ccc;
+}
+
+#summary .table .row:nth-child(2n) {
+  background-color: #eee;
+}
+
+#summary .table .row + .row {
+  border-top: 1px solid #aaa;
+}
+
+.fright {
+  float: right;
+}
+
+.katex {
+  font-size: 105%;
+  font-weight: 600;
+}
+
+#instructions ul {
+  list-style: none;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  margin-left: -1vw;
+}
+
+#instructions ul:last-of-type {
+  margin-bottom: 0;
+}
+
+#instructions ul li {
+  margin-bottom: 1em;
+  line-height: 1.25;
+}
+
+#instructions ul li::before {
+  display: inline-block;
+  width: 0.75em;
+  margin-left: -0.75em;
+  font-weight: bold;
+  content: "\2134";
+  font-size: 200%;
+  color: maroon;
+  line-height: 1;
+}
+
+#instructions h3 {
+  display: inline-block;
+  color: maroon;
+  margin-left: -0.75em;
+  font-family: "Quicksand";
+  font-size: 140%;
+  font-weight: bold;
+  letter-spacing: 0.9;
+  text-decoration: underline;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.statement {
+  margin: 0 auto;
+  text-align: left;
+}
+
+.statement strong {
+  color: maroon;
+}
+
+.statement h3 {
+  display: inline;
+  margin: 0;
+}
+
+.image {
+  position: relative;
+  margin: 1em auto;
+}
+
+.image img {
+  width: 100%;
+  margin: 0;
+}
+
+.image .label {
+  position: absolute;
+  z-index: 100;
+  padding: 0.25vw 0.5vw;
+}
+
+.parts {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 25% auto 3em 4em 1.5em 50%;
+      grid-template-columns: 25% auto 3em 4em 1.5em 50%;
+  grid-row-gap: 0.5em;
+  width: 60%;
+  margin: 0 auto;
+  font-size: 1.75vw;
+}
+
+.partStatement {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  text-align: right;
+  overflow-x: visible;
+}
+
+.markButton {
+  background-color: #670000;
+  background: -webkit-gradient(linear, left top, left bottom, from(maroon), color-stop(35%, maroon), color-stop(65%, #670000), to(#670000));
+  background: linear-gradient(to bottom, maroon, maroon 35%, #670000 65%, #670000);
+  font-size: 1.75vw;
+  color: white;
+  margin-right: 2vw;
+  height: 1.75em;
+  width: 4em;
+  border: none;
+  padding: 0.25vw;
+  font-size: 1.5vw;
+  text-decoration: none;
+  -webkit-box-shadow: 0 0 0.2em 0 black;
+          box-shadow: 0 0 0.2em 0 black;
+  place-self: center end;
+}
+
+.markButton.active {
+  position: relative;
+  top: 2px;
+  color: black;
+  background: white;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fefdfb), color-stop(45%, #fefdfb), color-stop(55%, linen), to(linen));
+  background: linear-gradient(to bottom, #fefdfb, #fefdfb 45%, linen 55%, linen);
+}
+
+.markButton:hover {
+  background-color: maroon;
+  background: -webkit-gradient(linear, left top, left bottom, from(#670000), color-stop(35%, #670000), color-stop(85%, maroon), to(maroon));
+  background: linear-gradient(to bottom, #670000, #670000 35%, maroon 85%, maroon);
+  cursor: pointer;
+}
+
+.markButton:focus {
+  position: relative;
+  outline: none;
+}
+
+input.partInput {
+  border: 0.3vw solid #d5d5d5;
+  font-size: 1.75vw;
+  margin: 0 0.5vw;
+  width: 8vw;
+  height: 3vw;
+  place-self: center center;
+  outline: none;
+}
+
+input.partInput:focus {
+  border: 0.3vw solid #aeaeae;
+}
+
+.cross:before {
+  color: maroon;
+  content: "\2718";
+  font-size: 125%;
+  font-weight: bold;
+}
+
+.check:before {
+  color: #080;
+  content: "\2714";
+  font-size: 125%;
+  font-weight: bold;
+  -ms-grid-column-align: start;
+      justify-self: start;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.units {
+  place-self: center start;
+}
+
+.crosscheck {
+  place-self: center start;
+}
+
+.feedback {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: start;
+      justify-self: start;
+  place-self: center start;
+  overflow-x: visible;
+}
+
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 16 px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  html {
+    font-size: 1.75vw;
+  }
+}
+
+@media screen and (min-width: 376px) {
+  header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    padding: 0 1em;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  header > * {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 auto;
+            flex: 0 auto;
+  }
+  header > h1 {
+    margin: 0;
+    margin-right: 1em;
+    margin-bottom: 0.125em;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  header > .rightblock {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: right;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 0px;
+            flex: 1 0 0;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: end;
+        align-content: flex-end;
+  }
+  header > .rightblock > h3 {
+    text-align: right;
+    margin: 0.125em 0 0.25em 1.5em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+  }
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  overflow-y: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 1em;
+}
+
+main #clear {
+  text-align: center;
+}
+
+main #login {
+  text-align: center;
+}
+
+main .card {
+  font-size: 95%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  padding: 1em 2em;
+  border: 1px solid #ccc;
+  -webkit-box-shadow: 0.1em 0.1em 0.275em 0.1em grey;
+          box-shadow: 0.1em 0.1em 0.275em 0.1em grey;
+  -ms-flex-preferred-size: 25em;
+      flex-basis: 25em;
+  background-color: #eee;
+}
+
+main .card p {
+  margin: 0.5em 0;
+}
+
+main .card h2 {
+  margin-top: 0.25em;
+  color: maroon;
+  text-align: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 100%;
+          flex: 1 100%;
+  font-family: "Quicksand";
+  font-weight: 700;
+  font-size: 175%;
+}
+
+main .card button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 100%;
+          flex: 1 100%;
+  border: none;
+  padding: 0.5em 0.25em;
+  font-size: 125%;
+  font-weight: 600;
+  font-family: "Quicksand";
+  background: -webkit-gradient(linear, left top, left bottom, from(maroon), color-stop(35%, maroon), color-stop(65%, #670000), to(#670000));
+  background: linear-gradient(to bottom, maroon, maroon 35%, #670000 65%, #670000);
+  color: white;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  letter-spacing: 0.075em;
+}
+
+main .card button:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#670000), color-stop(35%, #670000), color-stop(85%, maroon), to(maroon));
+  background: linear-gradient(to bottom, #670000, #670000 35%, maroon 85%, maroon);
+  cursor: pointer;
+}
+
+main .card button:focus {
+  outline: none;
+}
+
+main .card .login-list {
+  padding: 0;
+  margin: 0 auto;
+  list-style-type: none;
+  -ms-flex-preferred-size: 20.5em;
+      flex-basis: 20.5em;
+}
+
+main .card .login-list li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .card .login-list li label {
+  padding: 0.5em;
+  padding-left: 0;
+  font-size: 120%;
+}
+
+main .card .login-list li input {
+  font-size: 120%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 100%;
+          flex: 1 100%;
+  color: maroon;
+  border: 1px solid #ccc;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+main .card .login-list li input::-webkit-input-placeholder {
+  font-size: 80%;
+  color: maroon;
+  opacity: 0.5;
+}
+
+main .card .login-list li input:-ms-input-placeholder {
+  font-size: 80%;
+  color: maroon;
+  opacity: 0.5;
+}
+
+main .card .login-list li input::-ms-input-placeholder {
+  font-size: 80%;
+  color: maroon;
+  opacity: 0.5;
+}
+
+main .card .login-list li input::placeholder {
+  font-size: 80%;
+  color: maroon;
+  opacity: 0.5;
+}
+
+main .card .login-list li input:focus {
+  outline: 1px solid maroon;
+}
+
+main .card .login-list li#uIdError,
+main .card .login-list li#unameError {
+  display: block;
+  color: maroon;
+  margin-bottom: 1em;
+  text-align: center;
+  margin: 0 auto 0.5em auto;
+  text-transform: uppercase;
+  font-weight: bold;
+  height: 1.5em;
+}
+
+main .view {
+  width: 100%;
+}
+
+.highlight {
+  color: maroon;
+  font-weight: bold;
+}
+
+.width25 {
+  width: 25%;
+}
+
+.width30 {
+  width: 30%;
+}
+
+.width35 {
+  width: 35%;
+}
+
+.width40 {
+  width: 40%;
+}
+
+.width45 {
+  width: 45%;
+}
+
+.width50 {
+  width: 50%;
+}
+
+.width55 {
+  width: 55%;
+}
+
+.width60 {
+  width: 60%;
+}
+
+.width65 {
+  width: 65%;
+}
+
+.width70 {
+  width: 70%;
+}
+
+.width75 {
+  width: 75%;
+}
+
+.width80 {
+  width: 80%;
+}
+
+.width85 {
+  width: 85%;
+}
+
+.width90 {
+  width: 90%;
+}
+
+.width95 {
+  width: 95%;
+}
+
+.width100 {
+  width: 100%;
+}
