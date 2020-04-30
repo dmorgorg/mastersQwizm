@@ -1,5 +1,5 @@
 let QWIZM = QWIZM || {};
-QWIZM.state = QWIZM.state || {}; // an object to hold everything that goes in localStorage
+// state = state || {}; // an object to hold everything that goes in localStorage
 QWIZM.handlers = QWIZM.handlers || {};
 
 
@@ -8,10 +8,10 @@ QWIZM.handlers.validateLogin = (e) => {
     e.preventDefault();
     let uname = $('#uname')[0].value,
         uId = $('#uId')[0].value,
-        valid = false;
+        valid = false,
+        state = {}; // localStorage is empty at this point (until login)
 
-    // convert uId to positive integer, if it exists
-    // uId = uId.length > 0 ? parseInt(uId) : QWIZM.NEGATIVE;
+    console.log(state);
 
     // reset error messages to empty string by default; don't persist messages from a previous submit
     $('#unameError').text("");
@@ -43,13 +43,39 @@ QWIZM.handlers.validateLogin = (e) => {
     }
 
     if (valid) {
-        QWIZM.state.uname = uname;
-        QWIZM.state.uId = uId;
-        QWIZM.state.currentView = 'instructions';
-        QWIZM.state.thisQuiz = []; // this will hold state of entered and processed submissions
-        QWIZM.methods.writeState(QWIZM.QUIZ_KEY, QWIZM.state);
+        state.uname = uname;
+        state.uId = uId;
+        state.currentView = 'instructions';
+        state.thisQuiz = []; // this will hold state of entered and processed submissions
+        QWIZM.methods.writeToStorage(QWIZM.QUIZ_KEY, state);
         $('#login').fadeOut(); // have to fade out so that write to localStorage is complete before reload
         // window.location.reload(true); // not sure why but this helps katex
         QWIZM.methods.loadMain(QWIZM.quiz);
     }
 }
+
+QWIZM.handlers.reset = () => {
+    $('#clear').fadeOut();
+    localStorage.removeItem(QWIZM.QUIZ_KEY);
+    window.location.reload(); //to show login again
+};
+
+// event handler for navigation button click
+QWIZM.handlers.updateView = e => {
+    // get the button just clicked
+    let btnId = e.target.id,
+        state = QWIZM.methods.readFromStorage(QWIZM.QUIZ_KEY);
+    // if the view corresponding to the click is not currently visible...
+    if (state.currentView + 'Btn' !== btnId) {
+        // remove .active from previous view
+        $('#' + state.currentView + 'Btn').removeClass("active");
+        $('#' + state.currentView).hide();
+        // set new view in the state
+        state.currentView = btnId.replace('Btn', '');
+        // show that the newly clicked button is active
+        $('#' + btnId).addClass("active");
+        //console.log(state.currentView);
+        $('#' + state.currentView).fadeIn(QWIZM.DURATION);
+        QWIZM.methods.writeToStorage(QWIZM.QUIZ_KEY, state);
+    }
+};

@@ -1,49 +1,61 @@
 let QWIZM = QWIZM || {};
 QWIZM.methods = QWIZM.methods || {};
-QWIZM.state = QWIZM.state || {};
 
 // some constants
-QWIZM.DURATION = 400;
-// QWIZM.NEGATIVE = -42;
+QWIZM.DURATION = 1000;
 QWIZM.QUIZ_KEY = "quiz_" + QWIZM.quiz.id;
 QWIZM.DELTA = 1e-9;
 
 QWIZM.methods.loadMain = o => {
     let quizId = `quiz_${o.id}`;
 
-
     if (localStorage.getItem(quizId) === null) {
         QWIZM.methods.writeLoginForm();
         $('#uname').focus();
     } else {
-        console.log('in else');
-        console.log(JSON.parse(localStorage.getItem(quizId)));
-        QWIZM.state = QWIZM.methods.readState(quizId);
-        QWIZM.state.thisQuiz.push(99);
-        console.log(QWIZM.state);
+
+        let state = QWIZM.methods.readFromStorage(quizId);
 
         $('main').html(loadViews());
+
+        $('footer').html(QWIZM.methods.writeFooter());
+        // set all views to display:none;. Do that here rather than initializing all views to hidden so that when they are shown, display: flex (or whatever) is maintained
+        $('.view').hide();
+        $('#' + state.currentView + 'Btn').addClass("active");
+        $('#' + state.currentView).fadeIn(QWIZM.DURATION);
     }
 
     function loadViews() {
         // get number of questions for this quiz
         let nQ = QWIZM.quiz.questions.length,
             html = '';
-        html += `<section id='instructions' class='view'>
-                ${QWIZM.quiz.instructions}</section>`
 
+        html += `<section id='instructions' class='view'>${QWIZM.quiz.instructions}</section>
+                <section id='clear' class='card view' > ${QWIZM.methods.writeClearView()}</section>`;
+
+        for (let i = 1; i < nQ; i++) {
+            // QWIZM.quiz.questions[i] is a function where i is the question number
+            // We need to pass the question number into this function
+            html += `<section id='Q${i}' class='view'>`
+            html += `Q` + i;
+            html += `</section>`;
+
+            // console.log(QWIZM.quiz.questions[i](i));
+        }
+
+        html += `<section id='summary' class='view'>Summary</section>`;
         return html;
     }
 
 
 }
 
-QWIZM.methods.readState = (key) => {
+QWIZM.methods.readFromStorage = (key) => {
     let value = localStorage.getItem(key);
     return value && JSON.parse(value);
 };
 
-QWIZM.methods.writeState = (key, value) => {
+QWIZM.methods.writeToStorage = (key, value) => {
     localStorage.setItem(key, JSON.stringify(value));
 };
 
@@ -76,11 +88,21 @@ QWIZM.methods.writeLoginForm = () => {
         </div>`);
 };
 
+QWIZM.methods.writeClearView = () => {
+    let html = `<h2>Warning!</h2>
+                <p> Clicking the <span class = "highlight"> Clear Quiz </span> button below will reset the quiz, requiring you to log in again.</p >
+                <p><span class="highlight"> All your input answers, currently stored in the browser, will be lost!</span></p>
+                <p> Only click the <span class = "highlight"> Clear Quiz </span> button below if this is really what you intend.</p >
+                <p>(Generally, the only reason to clear the quiz from the browser is if you plan to enter a fictitious ID to practise the quiz with a different set of question values.)</p>
+                <button id="clear-button" type="submit">Clear Quiz</button>`;
+    return html;
+}
+
 QWIZM.methods.writeFooter = () => {
-    let state = QWIZM.methods.readState(QWIZM.QUIZ_KEY),
+    let state = QWIZM.methods.readFromStorage(QWIZM.QUIZ_KEY),
         // number of questions in this quiz
         len = QWIZM.quiz.questions.length,
-        html = `<footer>
+        html = `
                 <nav class='navbar'>
                     <ul class='nav-links'>
                         <li class = "nav-item" id="instructionsBtn" > Instructions </li>
@@ -93,6 +115,5 @@ QWIZM.methods.writeFooter = () => {
     return html + `<li class = "nav-item" id="summaryBtn">Summary </li>
                 </ul>                                          
                 <div class='uname'>${state.uname}</div>                     
-            </nav>                     
-        </footer>`;
+            </nav>`;
 };
